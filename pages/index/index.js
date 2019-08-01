@@ -1,7 +1,9 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const config = require('../../utils/constconfig');
 
+const tokenKey = config.TOKENKEY;
 Page({
   data: {
     motto: 'Hello World',
@@ -50,5 +52,44 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  chooseImage: function () {
+    var that = this;
+    wx.chooseImage(
+      {
+        count: 1,
+        // sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+         sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+        success: function (e) {
+          console.log(e.tempFilePaths[0])
+          that.setData({
+            imageSrc: e.tempFilePaths[0]
+          })
+          wx.showToast({
+            title: '数据加载中',
+            icon: 'loading',
+            duration: 2000
+          });
+          wx.uploadFile({
+            url: config.apiBaseUrl + 'getBaseCode',
+            filePath: e.tempFilePaths[0],
+            name: 'file',
+            header:{
+              'Content-Type': 'multipart/form-data',
+              'Authorization': wx.getStorageSync("access_token"),  //如果需要token的话要传
+            },
+            success: function (res) {
+
+              console.log(res, "=================================")
+              var code = JSON.parse(res.data)
+              //console.log(code.data, "=================================")
+            },
+            fail: function (res) { },
+            complete: function (res) { },
+          })
+
+        }
+      }
+    )
   }
 })

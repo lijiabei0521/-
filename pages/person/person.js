@@ -1,47 +1,17 @@
-// pages/my/index.js
-const app = getApp()
+// pages/person/person.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo: {},
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    showPopup: false,
-    isAuthor: false
+
   },
-  showPerson: function () {
-    wx.navigateTo({
-      url: '../person/person'
-    })
-  },
-  showCollected: function () {
-    wx.navigateTo({
-      url: '../collected/collected?gotoType=collected'
-    })
-  },
-  showAboutMe: function () {
-    wx.navigateTo({
-      url: '../about/about'
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this;
-    app.checkUserInfo(function (userInfo, isLogin) {
-      if (!isLogin) {
-        that.setData({
-          showPopup: true
-        })
-      } else {
-        that.setData({
-          userInfo: userInfo
-        });
-      }
-    });
 
   },
 
@@ -86,11 +56,7 @@ Page({
   onReachBottom: function () {
 
   },
-  navigateBack: function (e) {
-    wx.switchTab({
-      url: '../index/index'
-    })
-  },
+
   /**
    * 用户点击右上角分享
    */

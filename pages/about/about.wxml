@@ -1,0 +1,12 @@
+<!--pages/about/about.wxml-->
+<view class="container">
+ <view class='zan-font-14' style="padding: 15px;">
+      <text>普通程序员一枚，没有高深的技术，有一颗学习的心。
+            喜欢周杰伦，喜欢火影，喜欢Dota，喜欢盗墓笔记。
+            很想脱离世俗，也想财务自由，无奈现实残酷，生活所迫，注定做个平凡人。\n
+            很想分享些什么，无奈知识有限。
+            很想记录些什么，无奈文笔有限。
+            但终究还是想写点什么，毕竟记忆力有限。
+      </text>
+    </view>
+</view>

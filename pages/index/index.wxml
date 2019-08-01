@@ -10,4 +10,5 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <button  class="weui-btn" type="default" bindtap='chooseImage'>选字</button>
 </view>

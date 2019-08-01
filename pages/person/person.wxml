@@ -1,0 +1,7 @@
+<!--pages/person/person.wxml-->
+<view class="container">
+ <view class='zan-font-14' style="padding: 15px;">
+      <text>个人信息
+      </text>
+    </view>
+</view>

@@ -54,12 +54,19 @@ Page({
       success: function (res) {
         console.log("调用API成功");
         console.log(res);
-        console.log(res.data.message);
-        debugger;
         if (res.data.message == "ok") {
           wx.showToast({
             title: '登陆成功',
           })
+          var pages = getCurrentPages();
+          if(pages.length>1){
+            wx.navigateBack()
+          }
+          else{
+            wx.redirectTo({
+              url: '/pages/index/index',
+            })
+          }
         }
         else {
           wx.showModal({

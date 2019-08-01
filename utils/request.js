@@ -1,9 +1,9 @@
 
 var config = require('../config.js');
-var apiHost = config.APIBASEURL;
-var tokenKey = "token";
+const apiHost = config.APIBASEURL;
+const tokenKey = config.TOKENKEY;
 // 登录地址, 根据这个地址来设置token
-var logInUrl = "api/User/Login";
+const logInUrl = "api/User/Login";
 
 /** 
  * @param url:String  require(必需) 请求地址相对路径
